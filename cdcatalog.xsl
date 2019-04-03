@@ -60,7 +60,10 @@ h2{
       <th>Price</th>
       <th>Year</th>
     </tr>
-    <xsl:for-each select="catalog/cd">
+    <xsl:for-each select="catalog/cd[artist !='Bob Dylan']">
+    <xsl:sort select="country"/>
+    <xsl:sort select="artist"/>
+      <xsl:if test="price	&lt; 10">
     <tr>
       <td><xsl:value-of select="title"/></td>
       <td><xsl:value-of select="artist"/></td>
@@ -69,6 +72,7 @@ h2{
       <td><xsl:value-of select="price"/></td>
       <td><xsl:value-of select="year"/></td>
     </tr>
+    </xsl:if>
     </xsl:for-each>
   </table>
   </body>
