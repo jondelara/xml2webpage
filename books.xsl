@@ -51,26 +51,24 @@
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Graduate|Lobster|Quicksand" rel="stylesheet"/>
 </head>
   <body>
-  <h2>My CD Collection</h2>
+  <h2>My Book Collection</h2>
   <table id="customers" >
     <tr >
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Country</th>
-      <th>Company</th>
-      <th>Price</th>
-      <th>Year</th>
+      <th>author</th>
+      <th>title</th>
+      <th>genre</th>
+      <th>price</th>
+      <th>publish_date</th>
+      <th>description</th>
     </tr>
-    <xsl:for-each select="catalog/cd[artist]">
-    <xsl:sort select="country"/>
-    <xsl:sort select="artist"/>
+        <xsl:for-each select="catalog/book[title]">
     <tr>
+      <td><xsl:value-of select="author"/></td>
       <td><xsl:value-of select="title"/></td>
-      <td><xsl:value-of select="artist"/></td>
-      <td><xsl:value-of select="country"/></td>
-      <td><xsl:value-of select="company"/></td>
+      <td><xsl:value-of select="genre"/></td>
       <td><xsl:value-of select="price"/></td>
-      <td><xsl:value-of select="year"/></td>
+      <td><xsl:value-of select="publish_date"/></td>
+      <td><xsl:value-of select="description"/></td>
     </tr>
     </xsl:for-each>
   </table>
